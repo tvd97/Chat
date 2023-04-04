@@ -1,10 +1,10 @@
-package com.example.chatfirebase
+package com.example.chatfirebase.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import com.example.chatfirebase.R
 import com.example.chatfirebase.databinding.ActivityChatBinding
-import com.example.chatfirebase.databinding.ActivityMainBinding
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding

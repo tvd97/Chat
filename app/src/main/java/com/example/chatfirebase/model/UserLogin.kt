@@ -1,3 +1,8 @@
 package com.example.chatfirebase.model
 
-data class UserLogin( var email: String,  var password: String)
+import androidx.lifecycle.MutableLiveData
+
+data class UserLogin(
+    var email: MutableLiveData<String>,
+    var password: MutableLiveData<String>
+)

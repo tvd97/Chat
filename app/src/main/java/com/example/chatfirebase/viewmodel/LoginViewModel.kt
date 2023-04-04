@@ -13,14 +13,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val  auth: FirebaseAuth) : ViewModel() {
+class LoginViewModel @Inject constructor(private val auth: FirebaseAuth) : ViewModel() {
     @Inject
     lateinit var saveLocal: SaveLocal
     val result: LiveData<Response<User>>
         get() = _login
     private val _login = MutableLiveData<Response<User>>()
-    fun login(userLogin: UserLogin) {
-        auth.signInWithEmailAndPassword(userLogin.email, userLogin.password)
+    fun login(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { response ->
                 if (response.isSuccessful) {
                     val user = auth.currentUser?.let {
@@ -31,16 +31,11 @@ class LoginViewModel @Inject constructor(private val  auth: FirebaseAuth) : View
                         )
                     }
                     // Sign in success, update UI with the signed-in user's information
-                    val rs = Response<User>(
-                        isSuccess = true,
-                        message = "request access",
-                        data = user
-                    )
-                    _login.value = rs
+
+                    _login.value = Response.Success(user)
                     user?.let { saveLocal.saveUserLogin(it) }
                 } else {
-                    val rs = Response<User>(message = "request denied")
-                    _login.value = rs
+                    _login.value = response.exception?.let { Response.Error(it) }
                 }
             }
     }
