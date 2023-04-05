@@ -4,95 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.login.LoginActivity">
 
-    <data>
-
-        <variable
-            name="login"
-            type="com.example.chatfirebase.model.UserLogin" />
-    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activitty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/ln_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintBottom_toTopOf="@+id/ln_password"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Email!" />
-
-            <EditText
-                android:id="@+id/edit_email"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:hint="Enter email"
-                android:inputType="textEmailAddress"
-                android:text="@={login.email}" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ln_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="5"
-            app:layout_constraintBottom_toTopOf="@+id/ln_button"
-            app:layout_constraintTop_toBottomOf="@+id/ln_email">
-
-            <TextView
-                android:id="@+id/tv_password"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Password!" />
-
-            <EditText
-                android:id="@+id/edit_password"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:hint="Enter password"
-                android:inputType="textPassword"
-                android:text="@={login.password}" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ln_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ln_password">
-
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:textAllCaps="false" />
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

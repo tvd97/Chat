@@ -6,7 +6,7 @@ sealed class Response<out T>(
 
     ) {
     data class Success<out T>(val data: T?) : Response<T>()
-    data class Error(val exception: Exception) : Response<Nothing>()
+    data class Error(val exception: Any) : Response<Nothing>()
 
     override fun toString(): String {
         return when (this) {
